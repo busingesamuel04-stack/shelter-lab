@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shelter-lab.pages.dev/sitemap.xml
+Sitemap: https://rentvsbuypro.pages.dev/sitemap.xml
