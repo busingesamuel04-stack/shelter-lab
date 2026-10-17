@@ -1033,7 +1033,7 @@ export default function App() {
           {/* Upper Micro-Telemetry Strip */}
           <div className="border-b border-[#111110]/25 px-3 sm:px-6 py-1.5 flex items-center justify-between text-[11px] font-mono-tabular uppercase tracking-wider text-[#3F3E3A] bg-[#ECEAE2]">
             <div className="flex items-center gap-3 sm:gap-5 truncate">
-              <span className="text-[#111110] font-bold">SPEC // CAPITAL-VELOCITY-PRO</span>
+              <span className="text-[#111110] font-bold">SPEC // RENT-VS-BUY-PRO</span>
               <span className="hidden md:inline">MONTE CARLO STOCHASTICS & DUAL-ENTRY TAX LEDGER</span>
               {params.downPaymentPct < 20 && (
                 <span className="px-1.5 py-0.5 bg-[#C83E2B] text-[#F7F6F2] font-bold text-[10px]">
@@ -1047,13 +1047,27 @@ export default function App() {
               )}
             </div>
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+              <a
+                href="#rates"
+                onClick={(e) => {
+                  e.preventDefault();
+                  showToast('Affiliate partner portal connecting...');
+                  window.open('https://www.bankrate.com/mortgages/mortgage-rates/', '_blank');
+                }}
+                className="px-2.5 py-1 border border-[#14532D] bg-[#14532D] text-[#F7F6F2] hover:bg-[#111110] transition-colors font-bold flex items-center gap-1.5 text-xs font-mono-tabular"
+                title="Compare live mortgage rates from verified lending networks"
+              >
+                <Zap className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Compare Live Rates</span>
+                <span className="sm:hidden">Rates</span>
+              </a>
               <button
                 onClick={captureSnapshot}
                 className="px-2.5 py-1 border border-[#111110] bg-[#F7F6F2] hover:bg-[#111110] hover:text-[#F7F6F2] transition-colors font-bold flex items-center gap-1.5 text-[#111110]"
                 title="Pin current scenario for comparison"
               >
                 <BookmarkPlus className="w-3.5 h-3.5" />
-                <span>Pin Scenario</span>
+                <span>Pin</span>
               </button>
               <button
                 onClick={exportLedgerCSV}
@@ -1072,7 +1086,7 @@ export default function App() {
               <div>
                 <div className="flex items-baseline gap-2.5 flex-wrap">
                   <h1 className="font-serif-editorial text-2xl sm:text-4xl tracking-tight text-[#111110] leading-none">
-                    Capital Allocation & Shelter Lab
+                    RentVsBuy Pro: Net Worth & Opportunity Cost Lab
                   </h1>
                   <span className="text-[11px] font-mono-tabular font-bold uppercase px-2 py-0.5 border border-[#111110] bg-[#ECEAE2]">
                     {params.timelineYears}-YR HORIZON
@@ -1085,7 +1099,7 @@ export default function App() {
                   </span>
                 </div>
                 <p className="text-xs text-[#3F3E3A] mt-1 hidden sm:block">
-                  Tactile multi-variable simulation comparing real estate equity velocity, custom debt amortization, and S&P 500 compounding
+                  Institutional decision engine comparing real estate leveraged equity against S&P 500 compounding with Monte Carlo sequence-of-returns volatility
                 </p>
               </div>
             </div>
@@ -1674,6 +1688,18 @@ export default function App() {
                     <span>Debt: -{formatCurrency(finalRecord.loanBalance, true)}</span>
                     <span>Exit: -{formatCurrency(finalRecord.sellingCosts, true)}</span>
                   </div>
+                  <div className="pt-1.5 mt-1 border-t border-dashed border-[#111110]/20 flex items-center justify-between text-[10px] font-mono-tabular">
+                    <span className="text-[#3F3E3A]">Lending Network:</span>
+                    <a
+                      href="https://www.bankrate.com/mortgages/mortgage-rates/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-[#14532D] hover:underline flex items-center gap-1"
+                    >
+                      <span>Check Lowest Rates</span>
+                      <ChevronRight className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
 
                 {/* Renter Terminal Balance */}
@@ -1697,6 +1723,18 @@ export default function App() {
                   <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono-tabular text-[#3F3E3A] font-medium pt-2 border-t border-[#111110]/20">
                     <span>Principal: {formatCurrency(finalRecord.cumRenterContributions, true)}</span>
                     <span>Compound Gain: +{formatCurrency(finalRecord.renterInvestmentGains, true)}</span>
+                  </div>
+                  <div className="pt-1.5 mt-1 border-t border-dashed border-[#111110]/20 flex items-center justify-between text-[10px] font-mono-tabular">
+                    <span className="text-[#3F3E3A]">S&P 500 Brokerage:</span>
+                    <a
+                      href="https://www.sofi.com/invest/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-[#111110] hover:text-[#14532D] hover:underline flex items-center gap-1"
+                    >
+                      <span>Open Index Account (5% APY)</span>
+                      <ChevronRight className="w-3 h-3" />
+                    </a>
                   </div>
                 </div>
 
